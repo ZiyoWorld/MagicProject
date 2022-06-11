@@ -1,0 +1,42 @@
+﻿@using MagicProject.Models;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <h1>BSTU / Index</h1>
+        <div>
+            @Html.ActionLink("PRF", "PRF") <br />
+            @Html.ActionLink("OCC", "OCC") <br />
+            @Html.ActionLink("FRM", "FRM") <br />
+            @Html.ActionLink("POS", "POS") <br />
+            @Html.ActionLink("SURV", "SURV") <br />
+        </div>
+        <div class="row">
+            <div class="col-lg-4"> Ауторизация выполнена  </div> <div class="col-lg-3">: @(ViewBag.IsAuth?"да":"нет")</div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4"> Текущий ползователь  </div> <div class="col-lg-3">: @(((string)ViewBag.UserName).Length > 0 ? (string)ViewBag.UserName : "---"  ) </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4"> Текущий ползователь имет роль Администратор?  </div> <div class="col-lg-3">: @(ViewBag.IsAdmin?"да":"нет")</div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4"> Текущий ползователь имет роль Employer?  </div> <div class="col-lg-3">: @(ViewBag.IsEmployer?"да":"нет")</div>
+        </div>
+        <a href="~/Magic/PRF" class="btn btn-success m-3">Next</a>
+        <a href="~/Magic/Del" class="btn btn-danger">Delete</a>
+
+    </div>
+</body>
+</html>

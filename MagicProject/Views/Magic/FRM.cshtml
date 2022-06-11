@@ -1,0 +1,65 @@
+﻿@model  MagicProject.Controllers.Parms
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>FRM</title>
+</head>
+<body>
+    <script>
+        function aaa() {
+            f = document.getElementById("first");
+
+            f.action = "Index";
+            f.submit();
+        }
+        function bbb() {
+            f = document.getElementById("first");
+
+            f.action = "OCC";
+            f.submit();
+        }
+
+    </script>
+
+
+    <div class="container">
+        <header>
+            <h1 class="text-center text-primary"> Welcome Magic </h1>
+        </header>
+        <main class="mt-4">
+            <div class="row">
+                <div class="col-6 a1-main">
+                    <h3>Выбрать Занятость?</h3>
+                    <form action="~/Magic/POS" id="first" class="form-check">
+                        <input type="hidden" name="prf" value="@Model.prf" />
+                        <input type="hidden" name="occ" value="@Model.occ" />
+                        <p>Какой Профессия: @Model.prf</p>
+                        <p>Какой занятность @Model.occ</p>
+
+                        @foreach (var r in ViewBag.Forms)
+                        {
+                            <input type="radio" id="radioButton1" value="@r.ID" name="frm"> <label for="radioButton1">@r.Name</label><br />
+                        }
+
+                        <div class="d-flex mt-2">
+                            <button onclick="aaa();" class="btn btn-secondary btn-sm">Index</button>
+                            <button class="btn btn-success btn-sm" style="margin: 0 10px" onclick="bbb();">Prev</button>
+                            <button class="btn btn-primary btn-sm">Next</button><br />
+                        </div>
+                    </form>
+                </div>
+
+
+            </div>
+
+        </main>
+
+    </div>
+</body>
+</html>
